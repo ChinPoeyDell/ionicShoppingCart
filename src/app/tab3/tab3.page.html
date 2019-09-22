@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      My Shopping Cart
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <div class="ion-padding">
+      <ion-list>
+        <ion-item>
+          <ion-col size="1"><h6>ID</h6></ion-col>
+          <ion-col size="2"><h6>Pic</h6></ion-col>
+          <ion-col size="2"><h6>Title</h6></ion-col>
+          <ion-col size="3"><h6>Price/Unit</h6></ion-col>
+          <ion-col><h6>Quantity</h6></ion-col>
+        </ion-item>
+        <ion-item class="ion-margin-bottom"
+        *ngFor="let cart of carts; let i = index">
+          <ion-col size="1">{{cart.id}}</ion-col>
+          <ion-thumbnail>
+            <img [src]="cart.imageUrl">
+          </ion-thumbnail>
+          <ion-col>{{cart.title}}</ion-col>
+          <ion-col>RM {{cart.price}} per Unit</ion-col>
+          <ion-col>{{cart.quantity}}</ion-col>
+          <ion-icon name="trash" (click)="deleteCart(i)"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>

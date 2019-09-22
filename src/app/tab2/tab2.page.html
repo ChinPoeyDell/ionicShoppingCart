@@ -1,9 +1,35 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Product Page
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item>
+        <ion-col size="2"><h6>Pic</h6></ion-col>
+        <ion-col size="3"><h6>Title</h6></ion-col>
+        <ion-col><h6>Price/Unit</h6></ion-col>
+        <ion-col><h6>Quantity</h6></ion-col>
+      </ion-item>
+      <ion-item class="ion-margin-bottom"
+      *ngFor="let store of stores; let i = index"
+      (click)="onNavigatetoStore(store.id)">
+        <ion-thumbnail>
+          <img [src]="store.imageUrl">
+        </ion-thumbnail>
+        <ion-col><h6>{{store.title}}</h6></ion-col>
+        <ion-col><h6>RM {{store.price}}</h6></ion-col>
+        <span (click)="stopAction($event)">
+          <ion-icon name="add-circle-outline" (click)="addQuantity($event, i)"></ion-icon>
+          <ion-col size="1">{{store.quantity}}</ion-col>
+          <ion-icon name="remove-circle-outline" (click)="reduceQuantity($event, i)"></ion-icon>
+          <ion-icon name="cart" (click)="addToCart($event, store)"></ion-icon>
+        </span>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{selectedProduct.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img [src]="selectedProduct.imageUrl"></ion-img>
+  <ion-grid>
+    <ion-row>
+      <h3>
+      {{selectedProduct.description}}
+      </h3>
+    </ion-row>
+  </ion-grid>
+  <h3>Price per Unit</h3>
+  <p>
+    {{selectedProduct.price}}
+  </p>
+</ion-content>
